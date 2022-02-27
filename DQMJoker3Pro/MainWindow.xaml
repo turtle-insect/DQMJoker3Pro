@@ -1,0 +1,148 @@
+﻿<Window x:Class="DQMJoker3Pro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DQMJoker3Pro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+		AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver"
+        Title="DQM Jocker 3 Professional 3DS Save Editor" Height="600" Width="850">
+	<Window.DataContext>
+		<local:ViewModel/>
+	</Window.DataContext>
+	<Window.Resources>
+		<local:MonsterTypeConverter x:Key="MonsterTypeConverter"/>
+	</Window.Resources>
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="File">
+				<MenuItem Header="Open..." Click="MenuItemFileOpen_Click"/>
+				<MenuItem Header="Force Open..." Click="MenuItemFileForceOpen_Click"/>
+				<MenuItem Header="Save" Click="MenuItemFileSave_Click"/>
+				<Separator/>
+				<MenuItem Header="Import" Click="MenuItemFileImport_Click"/>
+				<MenuItem Header="Export" Click="MenuItemFileExport_Click"/>
+				<Separator/>
+				<MenuItem Header="Exit" Click="MenuItemFileExit_Click"/>
+			</MenuItem>
+		</Menu>
+		<TabControl>
+			<TabItem Header="Basic">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition Height="14*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="5"/>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Label Content="Money"/>
+					<TextBox Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
+					<Label Grid.Row="1" Content="Bank"/>
+					<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Bank, UpdateSourceTrigger=PropertyChanged}"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Monster">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="200"/>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<ListBox Name="ListBoxMonster" ItemsSource="{Binding Monsters}"/>
+					<Grid Grid.Column="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition/>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<Label  Content="Type"/>
+						<StackPanel Grid.Column="1" Orientation="Horizontal">
+							<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterType_Click"/>
+							<Label Grid.Column="1" Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Type, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonsterTypeConverter}}"/>
+						</StackPanel>
+						<Label Grid.Row="2" Content="Lv"/>
+						<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Lv, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="3" Content="Exp"/>
+						<TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="4" Content="MaxHP"/>
+						<TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.MaxHP, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="5" Content="HP"/>
+						<TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.HP, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="6" Content="MaxMP"/>
+						<TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.MaxMP, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="7" Content="MP"/>
+						<TextBox Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.MP, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="8" Content="Offense"/>
+						<TextBox Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Offense, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="9" Content="Defense"/>
+						<TextBox Grid.Row="9" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Defense, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="10" Content="Speed"/>
+						<TextBox Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Speed, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="11" Content="Wise"/>
+						<TextBox Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Wise, UpdateSourceTrigger=PropertyChanged}"/>
+						<Label Grid.Row="12" Content="SkillPoint"/>
+						<!--<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.SkillPoint, UpdateSourceTrigger=PropertyChanged}"/>-->
+					</Grid>
+					<TabControl Grid.Column="2">
+						<TabItem Header="Skill">
+							<TabItem.Resources>
+								<local:SkillIDConverter x:Key="SkillIDConverter"/>
+							</TabItem.Resources>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="80"/>
+									<ColumnDefinition/>
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition/>
+									<RowDefinition Height="12*"/>
+								</Grid.RowDefinitions>
+								<Label Content="Skill"/>
+								<StackPanel Grid.Column="1" Orientation="Horizontal">
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill1_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill1, Converter={StaticResource SkillIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="1" Content="Skill"/>
+								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill2_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill2, Converter={StaticResource SkillIDConverter}}"/>
+								</StackPanel>
+								<Label Grid.Row="2" Content="Skill"/>
+								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill3_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill3, Converter={StaticResource SkillIDConverter}}"/>
+								</StackPanel>
+							</Grid>
+						</TabItem>
+					</TabControl>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</DockPanel>
+</Window>
