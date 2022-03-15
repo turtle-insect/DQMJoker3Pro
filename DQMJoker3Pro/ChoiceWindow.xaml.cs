@@ -22,6 +22,7 @@ namespace DQMJoker3Pro
 		public enum eType
 		{
 			eType,
+			eProperty,
 			eSkill,
 		}
 		public uint ID { get; set; }
@@ -65,6 +66,7 @@ namespace DQMJoker3Pro
 			ListBoxItem.Items.Clear();
 			var items = Info.Instance().Type;
 			if (Type == eType.eSkill) items = Info.Instance().Skill;
+			else if(Type == eType.eSkill) items = Info.Instance().Property;
 
 			foreach (var item in items)
 			{

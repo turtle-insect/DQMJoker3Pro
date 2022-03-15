@@ -108,8 +108,9 @@
 						<!--<TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.SkillPoint, UpdateSourceTrigger=PropertyChanged}"/>-->
 					</Grid>
 					<TabControl Grid.Column="2">
-						<TabItem Header="Skill">
+						<TabItem Header="Property">
 							<TabItem.Resources>
+								<local:PropertyIDConverter x:Key="PropertyIDConverter"/>
 								<local:SkillIDConverter x:Key="SkillIDConverter"/>
 							</TabItem.Resources>
 							<Grid>
@@ -123,20 +124,20 @@
 									<RowDefinition/>
 									<RowDefinition Height="12*"/>
 								</Grid.RowDefinitions>
-								<Label Content="Skill"/>
+								<Label Content="Property"/>
 								<StackPanel Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill1_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill1, Converter={StaticResource SkillIDConverter}}"/>
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterProperty1_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property1, Converter={StaticResource PropertyIDConverter}}"/>
 								</StackPanel>
-								<Label Grid.Row="1" Content="Skill"/>
+								<Label Grid.Row="1" Content="Property"/>
 								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill2_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill2, Converter={StaticResource SkillIDConverter}}"/>
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterProperty2_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property2, Converter={StaticResource PropertyIDConverter}}"/>
 								</StackPanel>
-								<Label Grid.Row="2" Content="Skill"/>
+								<Label Grid.Row="2" Content="Property"/>
 								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterSkill3_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skill3, Converter={StaticResource SkillIDConverter}}"/>
+									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterProperty3_Click"/>
+									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property3, Converter={StaticResource PropertyIDConverter}}"/>
 								</StackPanel>
 							</Grid>
 						</TabItem>

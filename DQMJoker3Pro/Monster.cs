@@ -127,6 +127,36 @@ namespace DQMJoker3Pro
 			}
 		}
 
+		public uint Property1
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress + 64, 2); }
+			set
+			{
+				SaveData.Instance().WriteNumber(mAddress + 64, 2, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property1)));
+			}
+		}
+
+		public uint Property2
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress + 66, 2); }
+			set
+			{
+				SaveData.Instance().WriteNumber(mAddress + 66, 2, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property2)));
+			}
+		}
+
+		public uint Property3
+		{
+			get { return SaveData.Instance().ReadNumber(mAddress + 68, 2); }
+			set
+			{
+				SaveData.Instance().WriteNumber(mAddress + 68, 2, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property3)));
+			}
+		}
+
 		public uint SkillPoint
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 120, 2); }

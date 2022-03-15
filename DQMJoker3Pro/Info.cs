@@ -11,6 +11,7 @@ namespace DQMJoker3Pro
 		private static Info mThis;
 		public List<NameValueInfo> Item { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Type { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Property { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Skill { get; private set; } = new List<NameValueInfo>();
 
 		private Info() { }
@@ -44,6 +45,7 @@ namespace DQMJoker3Pro
 		{
 			AppendList("info\\item.txt", Item);
 			AppendList("info\\type.txt", Type);
+			AppendList("info\\property.txt", Property);
 			AppendList("info\\skill.txt", Skill);
 		}
 
