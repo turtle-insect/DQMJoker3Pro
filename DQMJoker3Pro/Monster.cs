@@ -17,6 +17,16 @@ namespace DQMJoker3Pro
 			mAddress = address;
 		}
 
+		public String Name
+		{
+			get { return SaveData.Instance().ReadText(mAddress, 14); }
+			set
+			{
+				SaveData.Instance().WriteText(mAddress, 14, value);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+			}
+		}
+
 		public uint Lv
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 42, 1); }

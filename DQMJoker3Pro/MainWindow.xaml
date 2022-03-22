@@ -55,7 +55,7 @@
 						<ColumnDefinition/>
 						<ColumnDefinition/>
 					</Grid.ColumnDefinitions>
-					<ListBox Name="ListBoxMonster" ItemsSource="{Binding Monsters}"/>
+					<ListBox Name="ListBoxMonster" ItemsSource="{Binding Monsters}" DisplayMemberPath="Name"/>
 					<Grid Grid.Column="1">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition/>
@@ -84,6 +84,8 @@
 							<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem}" Click="ButtonChoiceMonsterType_Click"/>
 							<Label Grid.Column="1" Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Type, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource MonsterTypeConverter}}"/>
 						</StackPanel>
+						<Label Grid.Row="1" Content="Name"/>
+						<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}"/>
 						<Label Grid.Row="2" Content="Lv"/>
 						<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Lv, UpdateSourceTrigger=PropertyChanged}"/>
 						<Label Grid.Row="3" Content="Exp"/>

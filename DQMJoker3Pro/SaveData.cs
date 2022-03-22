@@ -13,7 +13,7 @@ namespace DQMJoker3Pro
 		private Byte[] mBuffer = null;
 		Byte[] mKey = { 0x2C, 0x29, 0x9C, 0x25, 0x3E, 0xC5, 0xDF, 0x0D, 0x0C, 0x06, 0x56, 0xC7, 0xEE, 0x64, 0xCE, 0x34, };
 		Byte[] mIV = { 0x3C, 0x21, 0xB3, 0x3E, 0x28, 0x6D, 0x99, 0xF0, 0x96, 0xD2, 0x0F, 0x8B, 0xE9, 0x1E, 0xFE, 0x47, };
-		private readonly System.Text.Encoding mEncode = System.Text.Encoding.UTF8;
+		private readonly System.Text.Encoding mEncode = System.Text.Encoding.Unicode;
 		public uint Adventure { private get; set; } = 0;
 
 		private SaveData()
@@ -204,7 +204,7 @@ namespace DQMJoker3Pro
 			Byte[] tmp = new Byte[size];
 			for (uint i = 0; i < size; i++)
 			{
-				if (mBuffer[address + i] == 0) break;
+				if (i % 2 == 0 && mBuffer[address + i] == 0 && mBuffer[address + i + 1] == 0) break;
 				tmp[i] = mBuffer[address + i];
 			}
 			return mEncode.GetString(tmp).Trim('\0');
