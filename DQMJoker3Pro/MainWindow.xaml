@@ -33,7 +33,9 @@
 					<Grid.RowDefinitions>
 						<RowDefinition/>
 						<RowDefinition/>
-						<RowDefinition Height="14*"/>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition Height="12*"/>
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition/>
@@ -42,10 +44,12 @@
 						<ColumnDefinition/>
 						<ColumnDefinition/>
 					</Grid.ColumnDefinitions>
-					<Label Content="Money"/>
-					<TextBox Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
-					<Label Grid.Row="1" Content="Bank"/>
-					<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Bank, UpdateSourceTrigger=PropertyChanged}"/>
+					<Label Content="Name"/>
+					<TextBox Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+					<Label Grid.Row="1" Content="Money"/>
+					<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
+					<Label Grid.Row="2" Content="Bank"/>
+					<TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Bank, UpdateSourceTrigger=PropertyChanged}"/>
 				</Grid>
 			</TabItem>
 			<TabItem Header="Monster">

@@ -34,5 +34,11 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(0x1CC, 4); }
 			set { Util.WriteNumber(0x1CC, 4, value, 0, 99999999); }
 		}
+
+		public String Name
+		{
+			get { return SaveData.Instance().ReadText(0xFC, 14); }
+			set { SaveData.Instance().WriteText(0xFC, 14, value); }
+		}
 	}
 }
