@@ -52,7 +52,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 26, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 26, 2, value, 1, 999);
+				Util.WriteNumber(mAddress + 26, 2, value, 1, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MaxHP)));
 			}
 		}
@@ -62,7 +62,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 28, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 28, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 28, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MaxMP)));
 			}
 		}
@@ -72,7 +72,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 30, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 30, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 30, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HP)));
 			}
 		}
@@ -82,7 +82,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 32, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 32, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 32, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MP)));
 			}
 		}
@@ -92,7 +92,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 34, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 34, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 34, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Offense)));
 			}
 		}
@@ -102,7 +102,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 36, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 36, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 36, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Defense)));
 			}
 		}
@@ -112,7 +112,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 38, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 38, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 38, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Speed)));
 			}
 		}
@@ -122,7 +122,7 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadNumber(mAddress + 40, 2); }
 			set
 			{
-				Util.WriteNumber(mAddress + 40, 2, value, 0, 999);
+				Util.WriteNumber(mAddress + 40, 2, value, 0, 9999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Wise)));
 			}
 		}
