@@ -11,10 +11,25 @@ namespace DQMJoker3Pro
 	{
 		public event PropertyChangedEventHandler? PropertyChanged;
 
+		public Number Type { get; private set; }
+		public Number Property1 { get; private set; }
+		public Number Property2 { get; private set; }
+		public Number Property3 { get; private set; }
+		public Number Skill1 { get; private set; }
+		public Number Skill2 { get; private set; }
+		public Number Skill3 { get; private set; }
 
 		public Monster(uint address)
 		{
 			mAddress = address;
+
+			Type = new Number(address + 24, 2);
+			Property1 = new Number(address + 64, 2);
+			Property2 = new Number(address + 66, 2);
+			Property3 = new Number(address + 68, 2);
+			Skill1 = new Number(address + 82, 4);
+			Skill2 = new Number(address + 86, 4);
+			Skill3 = new Number(address + 90, 4);
 		}
 
 		public String Name
@@ -34,16 +49,6 @@ namespace DQMJoker3Pro
 			{
 				Util.WriteNumber(mAddress + 42, 1, value, 1, 99);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lv)));
-			}
-		}
-
-		public uint Type
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 24, 2); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 24, 2, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Type)));
 			}
 		}
 
@@ -137,36 +142,6 @@ namespace DQMJoker3Pro
 			}
 		}
 
-		public uint Property1
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 64, 2); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 64, 2, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property1)));
-			}
-		}
-
-		public uint Property2
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 66, 2); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 66, 2, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property2)));
-			}
-		}
-
-		public uint Property3
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 68, 2); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 68, 2, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Property3)));
-			}
-		}
-
 		public uint SkillPoint
 		{
 			get { return SaveData.Instance().ReadNumber(mAddress + 120, 2); }
@@ -174,36 +149,6 @@ namespace DQMJoker3Pro
 			{
 				Util.WriteNumber(mAddress + 120, 2, value, 0, 999);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SkillPoint)));
-			}
-		}
-
-		public uint Skill1
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 82, 4); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 82, 4, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Skill1)));
-			}
-		}
-
-		public uint Skill2
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 86, 4); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 86, 4, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Skill2)));
-			}
-		}
-
-		public uint Skill3
-		{
-			get { return SaveData.Instance().ReadNumber(mAddress + 90, 4); }
-			set
-			{
-				SaveData.Instance().WriteNumber(mAddress + 90, 4, value);
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Skill3)));
 			}
 		}
 

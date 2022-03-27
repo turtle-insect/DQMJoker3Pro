@@ -77,34 +77,18 @@ namespace DQMJoker3Pro
 
 		private void ButtonChoiceMonsterType_Click(object sender, RoutedEventArgs e)
 		{
-			var monster = (sender as Button)?.DataContext as Monster;
-			if (monster == null) return;
+			var number = (sender as Button)?.DataContext as Number;
+			if (number == null) return;
 
-			monster.Type = Choice(ChoiceWindow.eType.eType, monster.Type);
+			number.Value = Choice(ChoiceWindow.eType.eType, number.Value);
 		}
 
-		private void ButtonChoiceMonsterProperty1_Click(object sender, RoutedEventArgs e)
+		private void ButtonChoiceMonsterProperty_Click(object sender, RoutedEventArgs e)
 		{
-			var monster = (sender as Button)?.DataContext as Monster;
-			if (monster == null) return;
+			var number = (sender as Button)?.DataContext as Number;
+			if (number == null) return;
 
-			monster.Property1 = Choice(ChoiceWindow.eType.eProperty, monster.Property1);
-		}
-
-		private void ButtonChoiceMonsterProperty2_Click(object sender, RoutedEventArgs e)
-		{
-			var monster = (sender as Button)?.DataContext as Monster;
-			if (monster == null) return;
-
-			monster.Property2 = Choice(ChoiceWindow.eType.eProperty, monster.Property2);
-		}
-
-		private void ButtonChoiceMonsterProperty3_Click(object sender, RoutedEventArgs e)
-		{
-			var monster = (sender as Button)?.DataContext as Monster;
-			if (monster == null) return;
-
-			monster.Property3 = Choice(ChoiceWindow.eType.eProperty, monster.Property3);
+			number.Value = Choice(ChoiceWindow.eType.eProperty, number.Value);
 		}
 
 		private void FileOpen(bool force)

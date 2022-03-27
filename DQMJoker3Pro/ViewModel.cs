@@ -17,7 +17,7 @@ namespace DQMJoker3Pro
 			for (uint index = 0; index < 500; index++)
 			{
 				Monster monster = new Monster(0x3EC + index * 240);
-				if (monster.Type == 0) continue;
+				if (monster.Type.Value == 0) continue;
 
 				Monsters.Add(monster);
 			}
