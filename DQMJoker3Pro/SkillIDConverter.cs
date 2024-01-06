@@ -13,7 +13,8 @@ namespace DQMJoker3Pro
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			uint id = (uint)value;
-			return Info.Instance().Search(Info.Instance().Skill, id)?.Name;
+			var info = Info.Instance().Search(Info.Instance().Skill, id);
+			return info == null ? $"No {id}" : info.Name;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
