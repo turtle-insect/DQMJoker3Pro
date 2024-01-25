@@ -34,10 +34,10 @@ namespace DQMJoker3Pro
 
 		public String Name
 		{
-			get { return SaveData.Instance().ReadText(mAddress, 14); }
+			get { return SaveData.Instance().ReadText(mAddress, 16); }
 			set
 			{
-				SaveData.Instance().WriteText(mAddress, 14, value);
+				SaveData.Instance().WriteText(mAddress, 16, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
 			}
 		}
