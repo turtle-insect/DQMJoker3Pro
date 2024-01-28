@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,7 @@ namespace DQMJoker3Pro
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 		public Number Type { get; private set; }
-		public Number Property1 { get; private set; }
-		public Number Property2 { get; private set; }
-		public Number Property3 { get; private set; }
+		public ObservableCollection<Number> Propertys { get; private set; } = new ObservableCollection<Number>();
 		public Number Skill1 { get; private set; }
 		public Number Skill2 { get; private set; }
 		public Number Skill3 { get; private set; }
@@ -24,9 +23,10 @@ namespace DQMJoker3Pro
 			mAddress = address;
 
 			Type = new Number(address + 24, 2);
-			Property1 = new Number(address + 64, 2);
-			Property2 = new Number(address + 66, 2);
-			Property3 = new Number(address + 68, 2);
+			for (uint i = 0; i < 7; i++)
+			{
+				Propertys.Add(new Number(address + 64 + i * 2, 2));
+			}
 			Skill1 = new Number(address + 82, 4);
 			Skill2 = new Number(address + 86, 4);
 			Skill3 = new Number(address + 90, 4);

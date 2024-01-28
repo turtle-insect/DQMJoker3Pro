@@ -119,33 +119,16 @@
 								<local:PropertyIDConverter x:Key="PropertyIDConverter"/>
 								<local:SkillIDConverter x:Key="SkillIDConverter"/>
 							</TabItem.Resources>
-							<Grid>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="80"/>
-									<ColumnDefinition/>
-								</Grid.ColumnDefinitions>
-								<Grid.RowDefinitions>
-									<RowDefinition/>
-									<RowDefinition/>
-									<RowDefinition/>
-									<RowDefinition Height="12*"/>
-								</Grid.RowDefinitions>
-								<Label Content="Property"/>
-								<StackPanel Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property1}" Click="ButtonChoiceMonsterProperty_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property1.Value, Converter={StaticResource PropertyIDConverter}}"/>
-								</StackPanel>
-								<Label Grid.Row="1" Content="Property"/>
-								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property2}" Click="ButtonChoiceMonsterProperty_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property2.Value, Converter={StaticResource PropertyIDConverter}}"/>
-								</StackPanel>
-								<Label Grid.Row="2" Content="Property"/>
-								<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-									<Button Content=" ... " DataContext="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property3}" Click="ButtonChoiceMonsterProperty_Click"/>
-									<Label Content="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Property3.Value, Converter={StaticResource PropertyIDConverter}}"/>
-								</StackPanel>
-							</Grid>
+							<ListBox ItemsSource="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Propertys}">
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Width="50" Content="..." DataContext="{Binding}" Click="ButtonChoiceMonsterProperty_Click"/>
+											<Label Content="{Binding Path=Value, Converter={StaticResource PropertyIDConverter}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
 						</TabItem>
 					</TabControl>
 				</Grid>
