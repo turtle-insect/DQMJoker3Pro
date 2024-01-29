@@ -117,7 +117,6 @@
 						<TabItem Header="Property">
 							<TabItem.Resources>
 								<local:PropertyIDConverter x:Key="PropertyIDConverter"/>
-								<local:SkillIDConverter x:Key="SkillIDConverter"/>
 							</TabItem.Resources>
 							<ListBox ItemsSource="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Propertys}">
 								<ListBox.ItemTemplate>
@@ -125,6 +124,22 @@
 										<StackPanel Orientation="Horizontal">
 											<Button Width="50" Content="..." DataContext="{Binding}" Click="ButtonChoiceMonsterProperty_Click"/>
 											<Label Content="{Binding Path=Value, Converter={StaticResource PropertyIDConverter}}"/>
+										</StackPanel>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+						</TabItem>
+						<TabItem Header="Skill">
+							<TabItem.Resources>
+								<local:SkillIDConverter x:Key="SkillIDConverter"/>
+							</TabItem.Resources>
+							<ListBox ItemsSource="{Binding ElementName=ListBoxMonster, Path=SelectedItem.Skills}">
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<TextBox Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+											<Button Width="50" Content="..." DataContext="{Binding}" Click="ButtonChoiceMonsterSkill_Click"/>
+											<Label Content="{Binding Path=Value, Converter={StaticResource SkillIDConverter}}"/>
 										</StackPanel>
 									</DataTemplate>
 								</ListBox.ItemTemplate>

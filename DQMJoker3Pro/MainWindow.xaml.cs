@@ -91,6 +91,14 @@ namespace DQMJoker3Pro
 			number.Value = Choice(ChoiceWindow.eType.eProperty, number.Value);
 		}
 
+		private void ButtonChoiceMonsterSkill_Click(object sender, RoutedEventArgs e)
+		{
+			var number = (sender as Button)?.DataContext as Number;
+			if (number == null) return;
+
+			number.Value = Choice(ChoiceWindow.eType.eSkill, number.Value);
+		}
+
 		private void FileOpen(bool force)
 		{
 			var dlg = new OpenFileDialog();

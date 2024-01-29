@@ -14,9 +14,7 @@ namespace DQMJoker3Pro
 
 		public Number Type { get; private set; }
 		public ObservableCollection<Number> Propertys { get; private set; } = new ObservableCollection<Number>();
-		public Number Skill1 { get; private set; }
-		public Number Skill2 { get; private set; }
-		public Number Skill3 { get; private set; }
+		public ObservableCollection<Number> Skills { get; private set; } = new ObservableCollection<Number>();
 
 		public Monster(uint address)
 		{
@@ -27,9 +25,10 @@ namespace DQMJoker3Pro
 			{
 				Propertys.Add(new Number(address + 64 + i * 2, 2));
 			}
-			Skill1 = new Number(address + 82, 4);
-			Skill2 = new Number(address + 86, 4);
-			Skill3 = new Number(address + 90, 4);
+			for (uint i = 0; i < 3; i++)
+			{
+				Skills.Add(new Number(address + 82 + i * 4, 4));
+			}
 		}
 
 		public String Name
