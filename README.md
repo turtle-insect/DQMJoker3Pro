@@ -1,3 +1,5 @@
+![DL Count](https://img.shields.io/github/downloads/turtle-insect/DQMJoker3Pro/total.svg)
+
 # 概要
 3DS ドラゴンクエストモンスターズ ジョーカー3 プロフェッショナルのセーブデータ編集Tool
 
