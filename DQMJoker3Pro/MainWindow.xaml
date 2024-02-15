@@ -137,9 +137,11 @@
 								<ListBox.ItemTemplate>
 									<DataTemplate>
 										<StackPanel Orientation="Horizontal">
-											<TextBox Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+											<Label Content="Point"/>
+											<TextBox Text="{Binding Path=Point, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+											<TextBox Text="{Binding Path=ID, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 											<Button Width="50" Content="..." DataContext="{Binding}" Click="ButtonChoiceMonsterSkill_Click"/>
-											<Label Content="{Binding Path=Value, Converter={StaticResource SkillIDConverter}}"/>
+											<Label Content="{Binding Path=ID, Converter={StaticResource SkillIDConverter}}"/>
 										</StackPanel>
 									</DataTemplate>
 								</ListBox.ItemTemplate>

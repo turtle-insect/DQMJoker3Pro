@@ -93,10 +93,10 @@ namespace DQMJoker3Pro
 
 		private void ButtonChoiceMonsterSkill_Click(object sender, RoutedEventArgs e)
 		{
-			var number = (sender as Button)?.DataContext as Number;
-			if (number == null) return;
+			var skill = (sender as Button)?.DataContext as Skill;
+			if (skill == null) return;
 
-			number.Value = Choice(ChoiceWindow.eType.eSkill, number.Value);
+			skill.ID = Choice(ChoiceWindow.eType.eSkill, skill.ID);
 		}
 
 		private void FileOpen(bool force)
