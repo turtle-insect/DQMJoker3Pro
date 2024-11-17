@@ -60,6 +60,7 @@ namespace DQMJoker3Pro
 			if (dlg.ShowDialog() == false) return;
 
 			SaveData.Instance().Import(dlg.FileName);
+			DataContext = new ViewModel();
 		}
 
 		private void MenuItemFileExport_Click(object sender, RoutedEventArgs e)
