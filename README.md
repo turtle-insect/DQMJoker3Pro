@@ -8,7 +8,7 @@ http://www.dragonquest.jp/dqm-j3/professional/
 
 # 実行に必要
 * Windows マシン
-* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)の導入
+* [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)の導入
 * セーブデータの吸い出し
 * セーブデータの書き戻し
 
