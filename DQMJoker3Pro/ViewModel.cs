@@ -40,5 +40,11 @@ namespace DQMJoker3Pro
 			get { return SaveData.Instance().ReadText(0xFC, 14); }
 			set { SaveData.Instance().WriteText(0xFC, 14, value); }
 		}
+
+		public uint Version
+		{
+			get { return SaveData.Instance().ReadNumber(0x37BE0, 1); }
+			set { SaveData.Instance().WriteNumber(0x37BE0, 1, value); }
+		}
 	}
 }
