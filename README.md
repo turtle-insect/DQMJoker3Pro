@@ -24,3 +24,6 @@ http://www.dragonquest.jp/dqm-j3/professional/
 * 任意の編集を行う
 * SaveDataを書き出す
 * saveDataを書き戻す
+
+# special Thanks
+* [cui-yang](https://github.com/cui-yang)
